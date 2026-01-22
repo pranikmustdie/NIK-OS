@@ -1,0 +1,48 @@
+<!-- system_files/etc/firewalld/zones/nik-office.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<zone target="DROP">
+  <short>NIK-Office</short>
+  <description>Secure office environment zone - blocks all incoming by default, allows only essential outgoing</description>
+
+  <!-- Essential services only -->
+  <service name="dhcpv6-client"/>
+  <service name="dns"/>
+
+  <!-- Block common attack vectors -->
+  <rule family="ipv4">
+    <source address="0.0.0.0/8"/>
+    <drop/>
+  </rule>
+  <rule family="ipv4">
+    <source address="127.0.0.0/8"/>
+    <drop/>
+  </rule>
+  <rule family="ipv4">
+    <source address="169.254.0.0/16"/>
+    <drop/>
+  </rule>
+
+  <!-- Rate limit ICMP -->
+  <rule>
+    <protocol value="icmp"/>
+    <limit value="5/m"/>
+    <accept/>
+  </rule>
+
+  <!-- Drop invalid packets -->
+  <rule>
+    <conntrack>
+      <state>INVALID</state>
+    </conntrack>
+    <drop/>
+  </rule>
+
+  <!-- Allow established connections -->
+  <rule>
+    <conntrack>
+      <state>ESTABLISHED</state>
+      <state>RELATED</state>
+    </conntrack>
+    <accept/>
+  </rule>
+</zone>

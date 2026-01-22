@@ -1,0 +1,37 @@
+# system_files/etc/skel/.config/kwinrc
+# KDE Window Manager Performance Configuration
+
+[Compositing]
+Backend=OpenGL
+GLCore=true
+GLPreferBufferSwap=a
+GLTextureFilter=1
+HiddenPreviews=5
+OpenGLIsUnsafe=false
+WindowsBlockCompositing=true
+# Reduce effects for battery life
+AnimationSpeed=3
+UnredirectFullscreen=true
+
+[Plugins]
+# Disable unnecessary effects
+blurEnabled=false
+contrastEnabled=false
+kwin4_effect_fadingpopupsEnabled=false
+kwin4_effect_frozenappEnabled=false
+kwin4_effect_fullscreenEnabled=false
+kwin4_effect_login=false
+kwin4_effect_maximize=false
+kwin4_effect_translucencyEnabled=false
+slideEnabled=false
+zoomEnabled=false
+
+[Effect-PresentWindows]
+BorderActivateAll=9
+
+[Windows]
+# Focus follows mouse for productivity
+FocusPolicy=FocusFollowsMouse
+AutoRaise=false
+AutoRaiseInterval=750
+DelayFocusInterval=300
