@@ -28,10 +28,6 @@ RUN rpm-ostree install \
     htop \
     btop \
     && \
-    # Remove unnecessary packages to reduce bloat
-    rpm-ostree override remove \
-    yelp \
-    && \
     # Apply system optimizations
     chmod +x /tmp/build_files/optimize.sh && \
     /tmp/build_files/optimize.sh && \
