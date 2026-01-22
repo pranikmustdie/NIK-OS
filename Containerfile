@@ -30,7 +30,6 @@ RUN rpm-ostree install \
     && \
     # Remove unnecessary packages to reduce bloat
     rpm-ostree override remove \
-    gnome-tour \
     yelp \
     && \
     # Apply system optimizations
