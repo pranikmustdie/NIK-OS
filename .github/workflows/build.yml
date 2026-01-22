@@ -62,7 +62,10 @@ jobs:
           registry: ${{ env.IMAGE_REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
+          
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3.8.1
+        
       - name: Sign the container image
         if: github.event_name != 'pull_request'
         run: |
