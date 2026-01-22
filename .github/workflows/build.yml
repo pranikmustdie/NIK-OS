@@ -69,6 +69,7 @@ jobs:
       - name: Sign the container image
         if: github.event_name != 'pull_request'
         run: |
+          cosign login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} ghcr.io
           cosign sign -y --key env://COSIGN_PRIVATE_KEY \
             ${{ env.IMAGE_REGISTRY }}/nik-os@${{ steps.push.outputs.digest }}
         env:
