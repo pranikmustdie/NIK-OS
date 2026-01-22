@@ -1,7 +1,7 @@
 FROM ghcr.io/ublue-os/aurora:stable
 
 # Metadata
-LABEL org.opencontainers.image.title="NIK-OS"
+LABEL org.opencontainers.image.title="nik-os"
 LABEL org.opencontainers.image.description="High-stakes office optimized Fedora Atomic with KDE"
 LABEL org.opencontainers.image.version="1.0"
 
